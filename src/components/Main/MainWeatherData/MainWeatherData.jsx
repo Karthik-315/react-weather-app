@@ -4,21 +4,30 @@ import WeatherCondition from "./WeatherCondition";
 import TemperatureData from "./TemperatureData/TemperatureData";
 import OtherWeatherData from "./OtherWeatherData";
 
-function MainWeatherData({ coords, apikey, handleTemperature }) {
+function MainWeatherData({
+    coords,
+    apikey,
+    isCitySearch,
+    cityCurrentURL,
+    handleTemperature,
+}) {
     const [weatherData, setWeatherData] = useState();
     const weatherURLPrefix = "https://api.openweathermap.org/data/2.5/weather?";
+    const { latitude, longitude } = coords.coords;
+
+    // Default search is location based, if a city is provided in the search bar, weather info for that city is provided.
+    const weatherURL = isCitySearch
+        ? cityCurrentURL
+        : `${weatherURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
     async function getWeatherData() {
-        const userLocation = coords;
-        const { latitude, longitude } = userLocation.coords;
-        const weatherURL = `${weatherURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
-
         axios.get(weatherURL).then((response) => setWeatherData(response.data));
     }
 
+    // Adding weatherURL as dependency to re-render when user enters a city.
     useEffect(() => {
         getWeatherData();
-    }, []);
+    }, [weatherURL]);
 
     return (
         <section className="flex justify-between items-center w-5/6 test-border">

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import MainWeatherData from "./MainWeatherData/MainWeatherData";
 import ForecastContainer from "./ForecastContainer/ForecastContainer";
 
-function Main() {
+function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL }) {
     const [coords, setCoords] = useState();
-    const APIKey = "";
 
     function getUserLocation() {
         navigator.geolocation.getCurrentPosition((pos) => setCoords(pos));
@@ -22,12 +21,16 @@ function Main() {
                 <>
                     <MainWeatherData
                         coords={coords}
-                        apikey={APIKey}
+                        apikey={apikey}
+                        isCitySearch={isCitySearch}
+                        cityCurrentURL={cityCurrentURL}
                         handleTemperature={formatTemperature}
                     />
                     <ForecastContainer
                         coords={coords}
-                        apikey={APIKey}
+                        apikey={apikey}
+                        isCitySearch={isCitySearch}
+                        cityForecastURL={cityForecastURL}
                         handleTemperature={formatTemperature}
                     />
                 </>

@@ -3,15 +3,23 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 import DailyForecastCard from "./DailyForecastCard";
 
-function ForecastContainer({ coords, apikey, handleTemperature }) {
+function ForecastContainer({
+    coords,
+    apikey,
+    isCitySearch,
+    cityForecastURL,
+    handleTemperature,
+}) {
     const [forecastData, setForecastData] = useState();
     const weatherForecastURLPrefix = "https://api.openweathermap.org/data/2.5/forecast?";
+    const { latitude, longitude } = coords.coords;
+
+    // Default search is location based, if a city is provided in the search bar, weather info for that city is provided.
+    const weatherURL = isCitySearch
+        ? cityForecastURL
+        : `${weatherForecastURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
     async function getForecastData() {
-        const userLocation = coords;
-        const { latitude, longitude } = userLocation.coords;
-        const weatherURL = `${weatherForecastURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
-
         axios.get(weatherURL).then((response) => {
             // Get first 8 forecast data with a 12 hour gap. Starting with the next day.
             const nextDataGap = 4;
@@ -30,18 +38,17 @@ function ForecastContainer({ coords, apikey, handleTemperature }) {
 
     useEffect(() => {
         getForecastData();
-    }, []);
-
-    console.log(forecastData);
+    }, [weatherURL]);
 
     return (
-        <section className="grid grid-cols-8 gap-x-4 w-5/6 mt-28">
+        <section className="grid grid-cols-8 gap-x-4 w-5/6 mt-24">
             {forecastData &&
                 forecastData.map((data) => (
                     <DailyForecastCard
                         key={nanoid()}
                         rawDate={data.dt}
                         icon={data.weather[0].icon}
+                        forecastCondition={data.weather[0].main}
                         minTemp={data.main.temp_min}
                         maxTemp={data.main.temp_max}
                         handleTemperature={handleTemperature}

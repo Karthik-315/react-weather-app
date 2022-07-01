@@ -2,20 +2,8 @@ import React from "react";
 import MaxMinTemp from "./MaxMinTemp";
 
 function TemperatureData({ city, rawDate, country, mainTemperature, handleTemperature }) {
-    const months = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-    ];
+    //prettier-ignore
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     function formatForecastDate(rawDate) {
         const formattedDate = new Date(rawDate * 1000);

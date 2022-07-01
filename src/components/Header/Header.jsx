@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import CitySearchForm from "./CitySearchForm";
-import ThemeIcon from "./ThemeIcon";
 
-function Header() {
+function Header({ apikey, handleCityInput }) {
+    //london&appid=d7f68a8e1f6e2fbc6447241343454ffa
+    const cityWeatherURLPrefix = "https://api.openweathermap.org/data/2.5/weather?q=";
+    const cityForecastURLPrefix = "https://api.openweathermap.org/data/2.5/forecast?q=";
+
     // Set dark theme if that's the user's preference. If no user pref. is found, default to dark theme. Else, set light theme.
     function setTheme() {
         if (
@@ -38,8 +41,12 @@ function Header() {
         document.querySelector(".theme-icon--light").classList.toggle("hidden");
     }
 
-    function getCityWeather(event) {
+    function getCityWeather(event, city) {
         event.preventDefault();
+        const cityWeatherURL = `${cityWeatherURLPrefix}${city}&appid=${apikey}`;
+        const cityForecastURL = `${cityForecastURLPrefix}${city}&appid=${apikey}`;
+
+        handleCityInput(cityWeatherURL, cityForecastURL);
     }
 
     useEffect(() => {
@@ -50,7 +57,6 @@ function Header() {
         <header className="h-20 p-4">
             <h2 className="m-0">Can You Go Out Today App</h2>
             <CitySearchForm handleCitySearch={getCityWeather} />
-            {/* <ThemeIcon handleThemeSwitch={switchTheme} /> */}
         </header>
     );
 }
