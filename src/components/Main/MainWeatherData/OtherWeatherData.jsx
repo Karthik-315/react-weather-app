@@ -41,7 +41,6 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
 
             <div className="other-data-container other-data-container--active group ">
                 <FontAwesomeIcon icon={faWind} className="other-data-icon" />
-                {/* <p className="other-data-text">{windSpeed.toFixed(1)} km/hr</p> */}
                 <p className="other-data-text">
                     {unitType === "Metric"
                         ? `${windSpeed.toFixed(1)} kmph`

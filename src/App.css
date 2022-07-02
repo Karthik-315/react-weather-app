@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    #root {
+        @apply min-h-screen;
+    }
+
     .test-border {
         @apply border-0 border-solid border-black;
     }
@@ -17,7 +21,7 @@
     }
 
     .overlay {
-        @apply absolute inset-0 bg-[hsla(0,0%,85%,0.5)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)];
+        @apply absolute inset-0 bg-[hsla(0,0%,85%,0.5)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)] pointer-events-none;
         /* @apply absolute inset-0 bg-[hsla(0,0%,7%,0.1)] -z-20; */
     }
 
@@ -26,7 +30,7 @@
           prose-headings:m-0 prose-headings:font-medium prose-headings:p-1 prose-headings:text-black lg:prose-headings:p-2 dark:prose-headings:text-white
           prose-h1:text-6xl lg:prose-h1:text-9xl
           prose-h3:text-base prose-h3:font-semibold lg:prose-h3:text-xl
-        prose-p:text-black dark:text-white prose-p:text-base lg:prose-p:text-lg;
+        prose-p:text-black dark:prose-p:text-white prose-p:text-base lg:prose-p:text-lg;
     }
 
     .main--sub-section {
@@ -50,8 +54,8 @@
     }
 
     .other-data-container {
-        @apply flex justify-center items-center w-full my-4 p-2 opacity-70 scale-90
-        transition-[transform_opacity] duration-300 ease-in lg:scale-[70%];
+        @apply flex justify-center items-center w-full mt-14 p-2 opacity-70 scale-90
+        transition-[transform_opacity] duration-300 ease-in lg:mt-4 lg:scale-[70%];
     }
 
     .other-data-container--active {

@@ -10,6 +10,7 @@ function MainWeatherData({
     isCitySearch,
     cityCurrentURL,
     handleTemperature,
+    handleErrors,
 }) {
     const [weatherData, setWeatherData] = useState();
     const weatherURLPrefix = "https://api.openweathermap.org/data/2.5/weather?";
@@ -21,9 +22,15 @@ function MainWeatherData({
         : `${weatherURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
     async function getWeatherData() {
-        axios.get(weatherURL).then((response) => {
-            setWeatherData(response.data);
-        });
+        axios
+            .get(weatherURL)
+            .then((response) => {
+                setWeatherData(response.data);
+            })
+            .catch((error) => {
+                console.log(error.response.data.message);
+                handleErrors(error.response.data.message);
+            });
     }
 
     // Adding weatherURL as dependency to re-render when user enters a city.

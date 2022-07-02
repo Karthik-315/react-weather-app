@@ -3,10 +3,13 @@ import axios from "axios";
 import UnitContext from "./unit-context";
 import MainWeatherData from "./MainWeatherData/MainWeatherData";
 import ForecastContainer from "./ForecastContainer/ForecastContainer";
+import ErrorCard from "./ErrorCard/ErrorCard";
 
-function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL }) {
+function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref }) {
     const [coords, setCoords] = useState();
     const [unitType, setUnitType] = useState();
+    const [hasErrors, setHasErrors] = useState(false);
+    const [errorMessage, setErrorMessage] = useState();
 
     function getUserLocation() {
         navigator.geolocation.getCurrentPosition((pos) => setCoords(pos));
@@ -27,32 +30,52 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL }) {
         if (unitType === "Imperial") return Math.round(tempInCelcius * (9 / 5) + 32);
     }
 
+    function displayError(message) {
+        setHasErrors(true);
+        setErrorMessage(message);
+    }
+
+    function closeErrorMessage() {
+        setHasErrors(false);
+        resetPref();
+    }
+
     useEffect(() => {
         getUserLocation();
         getUserCountry();
     }, [unitType]);
 
     return (
-        <main className="flex flex-col justify-between items-center prose-config mt-8 p-2 lg:p-0">
-            {coords && (
-                <UnitContext.Provider value={unitType}>
-                    <MainWeatherData
-                        coords={coords}
-                        apikey={apikey}
-                        isCitySearch={isCitySearch}
-                        cityCurrentURL={cityCurrentURL}
-                        handleTemperature={formatTemperature}
+        <UnitContext.Provider value={unitType}>
+            <main className="flex flex-col justify-between items-center prose-config h-[calc(100vh_-_8rem)] p-2 py-8 lg:h-[calc(100vh_-_5rem)]">
+                {!hasErrors ? (
+                    coords && (
+                        <>
+                            <MainWeatherData
+                                coords={coords}
+                                apikey={apikey}
+                                isCitySearch={isCitySearch}
+                                cityCurrentURL={cityCurrentURL}
+                                handleTemperature={formatTemperature}
+                                handleErrors={displayError}
+                            />
+                            <ForecastContainer
+                                coords={coords}
+                                apikey={apikey}
+                                isCitySearch={isCitySearch}
+                                cityForecastURL={cityForecastURL}
+                                handleTemperature={formatTemperature}
+                            />
+                        </>
+                    )
+                ) : (
+                    <ErrorCard
+                        errorMessage={errorMessage}
+                        handleCloseError={closeErrorMessage}
                     />
-                    <ForecastContainer
-                        coords={coords}
-                        apikey={apikey}
-                        isCitySearch={isCitySearch}
-                        cityForecastURL={cityForecastURL}
-                        handleTemperature={formatTemperature}
-                    />
-                </UnitContext.Provider>
-            )}
-        </main>
+                )}
+            </main>
+        </UnitContext.Provider>
     );
 }
 

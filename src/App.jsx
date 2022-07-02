@@ -19,7 +19,9 @@ function App() {
         setCityForecastURL(forecastURL);
     }
 
-    useEffect(() => {}, []);
+    function resetPreferences() {
+        setIsCitySearch(false);
+    }
 
     return (
         <React.Fragment>
@@ -30,6 +32,7 @@ function App() {
                 isCitySearch={isCitySearch}
                 cityCurrentURL={cityCurrentURL}
                 cityForecastURL={cityForecastURL}
+                resetPref={resetPreferences}
             />
         </React.Fragment>
     );
