@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWind, faGaugeHigh, faDroplet } from "@fortawesome/free-solid-svg-icons";
+import UnitContext from "./../unit-context";
 
 function OtherWeatherData({ pressure, humidity, windSpeed }) {
     const animationTime = 2000;
     let currentIndex = 0;
     let animateInterval;
+    const unitType = useContext(UnitContext);
 
     function animateData() {
         const otherDataContainer = document.querySelector(
@@ -32,17 +34,22 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
 
     return (
         <article className="main--sub-section sub-section--other-data">
-            <div className="other-data-container group">
+            <div className="other-data-container group ">
                 <FontAwesomeIcon icon={faGaugeHigh} className="other-data-icon" />
                 <p className="other-data-text">{pressure} mb</p>
             </div>
 
-            <div className="other-data-container other-data-container--active group">
+            <div className="other-data-container other-data-container--active group ">
                 <FontAwesomeIcon icon={faWind} className="other-data-icon" />
-                <p className="other-data-text">{windSpeed} km/hr</p>
+                {/* <p className="other-data-text">{windSpeed.toFixed(1)} km/hr</p> */}
+                <p className="other-data-text">
+                    {unitType === "Metric"
+                        ? `${windSpeed.toFixed(1)} kmph`
+                        : `${(windSpeed / 1.609).toFixed(1)} mph`}
+                </p>
             </div>
 
-            <div className="other-data-container group">
+            <div className="other-data-container group ">
                 <FontAwesomeIcon icon={faDroplet} className="other-data-icon" />
                 <p className="other-data-text">{humidity} %</p>
             </div>

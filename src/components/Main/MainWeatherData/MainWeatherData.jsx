@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import WeatherCondition from "./WeatherCondition";
 import TemperatureData from "./TemperatureData/TemperatureData";
@@ -21,7 +21,9 @@ function MainWeatherData({
         : `${weatherURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
     async function getWeatherData() {
-        axios.get(weatherURL).then((response) => setWeatherData(response.data));
+        axios.get(weatherURL).then((response) => {
+            setWeatherData(response.data);
+        });
     }
 
     // Adding weatherURL as dependency to re-render when user enters a city.
@@ -30,7 +32,7 @@ function MainWeatherData({
     }, [weatherURL]);
 
     return (
-        <section className="flex justify-between items-center w-5/6 test-border">
+        <section className="grid grid-cols-2 grid-rows-1 w-full lg:flex lg:justify-between lg:items-center lg:w-5/6 lg:pt-10 test-border">
             {weatherData && (
                 <>
                     <WeatherCondition weatherCondition={weatherData.weather[0]} />

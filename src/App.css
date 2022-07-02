@@ -4,41 +4,41 @@
 
 @layer components {
     .test-border {
-        @apply border-0 border-solid border-white;
+        @apply border-0 border-solid border-black;
     }
 
     html {
-        @apply h-full text-sm font-inter;
+        @apply h-full text-xs font-inter lg:text-sm;
     }
 
     body {
         @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed
-        bg-[url("./assets/images/bg-medium/bg-evening-clear.jpg")] font-mono;
+        bg-[url("./assets/images/bg-medium/bg-morning-clear-beach.jpg")] font-mono;
     }
 
     .overlay {
-        @apply absolute inset-0 bg-[hsla(0,0%,85%,0.3)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)];
-        /* @apply absolute inset-0 bg-[hsla(0,0%,7%,0.8)] -z-20; */
-    }
-
-    header {
-        @apply prose-config h-20 flex justify-between items-center;
+        @apply absolute inset-0 bg-[hsla(0,0%,85%,0.5)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)];
+        /* @apply absolute inset-0 bg-[hsla(0,0%,7%,0.1)] -z-20; */
     }
 
     .prose-config {
         @apply prose lg:prose-xl dark:prose-invert max-w-none
-          prose-headings:m-0 prose-headings:font-medium prose-headings:p-2 prose-headings:text-black dark:prose-headings:text-white
-          prose-h1:text-9xl
-          prose-h3:font-semibold
-          prose-p:text-lg text-black dark:text-white;
+          prose-headings:m-0 prose-headings:font-medium prose-headings:p-1 prose-headings:text-black lg:prose-headings:p-2 dark:prose-headings:text-white
+          prose-h1:text-6xl lg:prose-h1:text-9xl
+          prose-h3:text-base prose-h3:font-semibold lg:prose-h3:text-xl
+        prose-p:text-black dark:text-white prose-p:text-base lg:prose-p:text-lg;
     }
 
     .main--sub-section {
-        @apply flex flex-col justify-between items-center p-4 px-14;
+        @apply flex flex-col justify-center items-center p-1 lg:px-14 test-border;
+    }
+
+    .sub-section--other-data {
+        @apply flex-row col-span-2 lg:flex-col;
     }
 
     .min-max-container {
-        @apply flex items-center mx-1 opacity-90;
+        @apply flex items-center mx-1.5 opacity-90 lg:mx-10;
     }
 
     .min-max-temperature {
@@ -46,12 +46,12 @@
     }
 
     .min-max-unit-text {
-        @apply text-base font-bold;
+        @apply text-sm font-semibold;
     }
 
     .other-data-container {
-        @apply flex justify-center items-center w-full my-4 p-2 opacity-70 scale-[70%]
-        transition-[transform_opacity] duration-300 ease-in;
+        @apply flex justify-center items-center w-full my-4 p-2 opacity-70 scale-90
+        transition-[transform_opacity] duration-300 ease-in lg:scale-[70%];
     }
 
     .other-data-container--active {
@@ -59,11 +59,11 @@
     }
 
     .other-data-icon {
-        @apply h-6 w-6 px-4;
+        @apply h-6 w-6 lg:px-4;
     }
 
     .other-data-text {
-        @apply grow m-0 ml-2 text-2xl font-normal;
+        @apply grow-0 m-0 ml-2 text-sm font-normal text-center lg:grow lg:text-2xl md:text-left;
     }
 
     .svg-filter-black {

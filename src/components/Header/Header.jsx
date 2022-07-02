@@ -54,7 +54,7 @@ function Header({ apikey, handleCityInput }) {
     }, []);
 
     return (
-        <header className="h-20 p-4">
+        <header className="prose-config flex flex-col justify-center items-center p-4 lg:flex-row lg:justify-between lg:h-20">
             <h2 className="m-0">Can You Go Out Today App</h2>
             <CitySearchForm handleCitySearch={getCityWeather} />
         </header>

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import MaxMinTemp from "./MaxMinTemp";
+import UnitContext from "./../../unit-context";
 
 function TemperatureData({ city, rawDate, country, mainTemperature, handleTemperature }) {
     //prettier-ignore
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const unitType = useContext(UnitContext);
 
     function formatForecastDate(rawDate) {
         const formattedDate = new Date(rawDate * 1000);
@@ -18,24 +20,26 @@ function TemperatureData({ city, rawDate, country, mainTemperature, handleTemper
 
     return (
         <article className="main--sub-section">
-            <div>
-                <h3 className="m-0 uppercase">
+            <div className="test-border">
+                <p className="m-0 uppercase font-semibold">
                     {city}
                     <span className="font-normal">, {country}</span>
-                </h3>
+                </p>
 
-                <p className="m-0 p-0 text-base text-center font-semibold uppercase opacity-70">
+                <p className="m-0 p-0 text-sm text-center font-semibold uppercase opacity-70">
                     {formatForecastDate(rawDate)}
                 </p>
             </div>
 
-            <div className="flex items-center my-4">
-                <h1 className="self-end m-0 p-0 text-8xl  tracking-wide">
+            <div className="flex items-center my-4 test-border">
+                <h1 className=" m-0 p-0 text-6xl tracking-wide lg:text-8xl lg:self-end test-border">
                     {handleTemperature(mainTemperature.temp)}
                 </h1>
-                <div className="flex flex-col justify-between h-full px-1">
-                    <h2 className="m-0 p-0 pt-4 font-extrabold">°</h2>
-                    <h2 className="m-0 p-0 text-5xl font-light">C</h2>
+                <div className="flex flex-col justify-between h-full px-1 test-border">
+                    <h2 className="m-0 p-0 font-extrabold lg:pt-4">°</h2>
+                    <h2 className="m-0 p-0 text-3xl font-light lg:text-5xl">
+                        {unitType === "Metric" ? "C" : "F"}
+                    </h2>
                 </div>
             </div>
 
