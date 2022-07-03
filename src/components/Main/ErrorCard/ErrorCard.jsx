@@ -15,9 +15,9 @@ function ErrorCard({ errorMessage, handleCloseError }) {
                 "Hey pal... You on cheap drugs or what? You cannot search for an empty city. Don't waste my time.";
             break;
 
-        case "nothing to geocode":
-            customErrorMessage =
-                "Hey pal... You on cheap drugs or what? You cannot search for an empty city. Don't waste my time.";
+        case "invalid api key. please see http://openweathermap.org/faq#error401 for more info.":
+            customErrorMessage = `Looks like there's a problem with the API Key. If you are running this locally, make sure to take a 
+            look at the README file.`;
             break;
 
         default:

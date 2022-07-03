@@ -28,7 +28,6 @@ function MainWeatherData({
                 setWeatherData(response.data);
             })
             .catch((error) => {
-                console.log(error.response.data.message);
                 handleErrors(error.response.data.message);
             });
     }

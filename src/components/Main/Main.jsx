@@ -7,7 +7,7 @@ import ErrorCard from "./ErrorCard/ErrorCard";
 
 function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref }) {
     const [coords, setCoords] = useState();
-    const [unitType, setUnitType] = useState();
+    const [unitType, setUnitType] = useState("Metric");
     const [hasErrors, setHasErrors] = useState(false);
     const [errorMessage, setErrorMessage] = useState();
 
@@ -17,11 +17,15 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
 
     // To determine using Metric or Imperial Units
     function getUserCountry() {
-        axios.get("http://ip-api.com/json/").then((response) => {
-            ["US", "MM", "LR"].includes(response?.data?.countryCode)
-                ? setUnitType("Imperial")
-                : setUnitType("Metric");
-        });
+        axios
+            .get("http://ip-api.com/json")
+            .then((response) => {
+                ["US", "MM", "LR"].includes(response?.data?.countryCode) &&
+                    setUnitType("Imperial");
+            })
+            .catch((error) => {
+                console.log(error.response.data.message);
+            });
     }
 
     function formatTemperature(data) {
