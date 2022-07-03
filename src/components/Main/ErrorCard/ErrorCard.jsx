@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import errorIcon from "../../../assets/images/warning.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
@@ -61,7 +60,6 @@ function ErrorCard({ errorMessage, handleCloseError }) {
         <section className="error-modal">
             <article className="relative p-4 h-24">
                 <div className="absolute -top-[80%] left-1/2 p-5 rounded-full -translate-x-1/2 bg-red-400 outline-4 outline-none outline-offset-0 outline-slate-50 dark:outline-slate-700 shadow-2xl ring-8 ring-red-400">
-                    {/* <img src={errorIcon} alt="Error Icon" className="h-14 w-14 m-0" /> */}
                     <FontAwesomeIcon
                         icon={faTriangleExclamation}
                         className="h-14 w-14 text-neutral-100"
