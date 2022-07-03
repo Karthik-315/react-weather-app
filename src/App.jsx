@@ -9,7 +9,6 @@ function App() {
     const [cityCurrentURL, setCityCurrentURL] = useState();
     const [cityForecastURL, setCityForecastURL] = useState();
 
-    // const APIKey = "";
     const APIKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
     function getCity(currentURL, forecastURL) {
