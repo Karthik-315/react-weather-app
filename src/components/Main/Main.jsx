@@ -44,6 +44,11 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
         resetPref();
     }
 
+    const mainClass =
+        hasErrors & coords
+            ? `flex flex-col justify-between items-center prose-config h-[calc(100vh_-_8rem)] p-2 py-8 lg:h-[calc(100vh_-_5rem)]`
+            : `flex flex-col justify-center items-center prose-config h-[calc(100vh_-_8rem)] p-2 py-8 lg:h-[calc(100vh_-_5rem)] lg:justify-between`;
+
     useEffect(() => {
         getUserLocation();
         getUserCountry();
@@ -51,7 +56,7 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
 
     return (
         <UnitContext.Provider value={unitType}>
-            <main className="flex flex-col justify-between items-center prose-config h-[calc(100vh_-_8rem)] p-2 py-8 lg:h-[calc(100vh_-_5rem)]">
+            <main className={mainClass}>
                 {!hasErrors ? (
                     coords && (
                         <>

@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import errorIcon from "../../../assets/images/warning.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function ErrorCard({ errorMessage, handleCloseError }) {
     let customErrorMessage;
@@ -26,40 +29,59 @@ function ErrorCard({ errorMessage, handleCloseError }) {
     }
 
     useEffect(() => {
+        // Return to homepage if "Esc" key is pressed, or when clicked outside the error modal.
         function closeModal(event) {
-            if (event.key === `Escape`) {
+            if (event.type === "keydown") {
+                if (event.key === `Escape`) {
+                    handleCloseError();
+                }
+            } else if (event.type === "click") {
+                event.stopPropagation();
+                if (
+                    event.target.closest("section") &&
+                    event.target.closest("section").classList[0] === "error-modal"
+                ) {
+                    return;
+                }
                 handleCloseError();
             }
         }
 
         document.addEventListener("keydown", closeModal);
+        document.body.addEventListener("click", closeModal);
 
-        document.body.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (
-                event.target.closest("section") &&
-                event.target.closest("section").classList[0] === "error-modal"
-            ) {
-                return;
-            }
-
-            handleCloseError();
-        });
-
-        return () => document.removeEventListener("keydown", closeModal);
+        // Cleanup - Remove listeners when error modal is closed
+        return () => {
+            document.removeEventListener("keydown", closeModal);
+            document.body.removeEventListener("click", closeModal);
+        };
     }, []);
 
     return (
-        <section className="error-modal w-full rounded bg-slate-50 shadow dark:bg-slate-700 lg:mt-24 lg:w-1/2 z-20">
-            <article className="flex justify-between items-center p-4 bg-slate-300 dark:bg-slate-800">
-                <h3 className="m-0 mr-20 uppercase tracking-wide">
+        <section className="error-modal">
+            <article className="relative p-4 h-24">
+                <div className="absolute -top-[80%] left-1/2 p-5 rounded-full -translate-x-1/2 bg-red-400 outline-4 outline-none outline-offset-0 outline-slate-50 dark:outline-slate-700 shadow-2xl ring-8 ring-red-400">
+                    {/* <img src={errorIcon} alt="Error Icon" className="h-14 w-14 m-0" /> */}
+                    <FontAwesomeIcon
+                        icon={faTriangleExclamation}
+                        className="h-14 w-14 text-neutral-100"
+                    />
+                </div>
+                <h3 className="absolute bottom-0 left-0 right-0 m-0 text-center font-bold uppercase tracking-widest">
                     Oops! An Error Occured!
                 </h3>
-                <button className="text-4xl font-extrabold" onClick={handleCloseError}>
-                    &times;
+            </article>
+            <article className="flex flex-col items-center p-6">
+                <p className="p-0 text-center text-2xl lg:p-4">{customErrorMessage}</p>
+
+                <button
+                    className="w-fit mt-4 p-4 text-2xl font-medium text-white uppercase bg-red-400 shadow-lg shadow-red-400/50 hover:shadow-none transition-shadow duration-200
+                    "
+                    onClick={handleCloseError}
+                >
+                    Ok, I Understand
                 </button>
             </article>
-            <p className="my-4 mt-8 p-4 pt-2 text-2xl">{customErrorMessage}</p>
         </section>
     );
 }
