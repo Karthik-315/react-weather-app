@@ -5,13 +5,12 @@ import Overlay from "./components/Overlay";
 import Main from "./components/Main/Main";
 
 function App() {
-    /* const key = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
-    console.log(key); */
     const [isCitySearch, setIsCitySearch] = useState(false);
     const [cityCurrentURL, setCityCurrentURL] = useState();
     const [cityForecastURL, setCityForecastURL] = useState();
 
-    const APIKey = "";
+    // const APIKey = "";
+    const APIKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
     function getCity(currentURL, forecastURL) {
         setIsCitySearch(true);
