@@ -26,7 +26,7 @@ function TemperatureData({ city, rawDate, country, mainTemperature, handleTemper
                     <span className="font-normal">, {country}</span>
                 </p>
 
-                <p className="m-0 p-0 text-sm text-center font-semibold uppercase opacity-70">
+                <p className="m-0 p-0 text-sm text-center font-semibold uppercase opacity-80">
                     {formatForecastDate(rawDate)}
                 </p>
             </div>

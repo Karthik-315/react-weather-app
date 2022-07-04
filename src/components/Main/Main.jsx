@@ -51,7 +51,7 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
 
     return (
         <UnitContext.Provider value={unitType}>
-            <main className="flex flex-col justify-between items-center prose-config h-[calc(100vh_-_8rem)] p-2 py-4 lg:h-[calc(100vh_-_5rem)]">
+            <main className="flex flex-col justify-between items-center prose-config min-h-[calc(100vh_-_8rem)] p-2 py-4 lg:min-h-[calc(100vh_-_5rem)]">
                 {!hasErrors ? (
                     coords && (
                         <>

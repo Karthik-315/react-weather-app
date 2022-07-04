@@ -34,7 +34,7 @@ function DailyForecastCard({
         <article className="flex flex-col justify-center items-center w-full px-5 test-border">
             <div>
                 <p className="m-0 mt-2 text-center">{formatForecastDate(rawDate).day}</p>
-                <p className="m-0 mb-4 text-sm font-semibold text-center opacity-60">
+                <p className="m-0 mb-4 text-sm font-semibold text-center opacity-80">
                     {formatForecastDate(rawDate).time}
                 </p>
             </div>

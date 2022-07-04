@@ -4,11 +4,11 @@
 
 @layer components {
     #root {
-        @apply min-h-screen;
+        @apply relative min-h-screen;
     }
 
     .test-border {
-        @apply border-0 border-solid border-black;
+        @apply border-0 border-solid border-white;
     }
 
     html {
@@ -17,12 +17,13 @@
 
     body {
         @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed
-        bg-[url("./assets/images/bg-medium/bg-morning-clear-beach.jpg")] font-mono;
+        bg-[url("./assets/images/bg-medium/bg-evening-clear-2.jpg")] font-mono;
     }
 
     .overlay {
-        @apply absolute inset-0 bg-[hsla(0,0%,85%,0.5)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)] pointer-events-none;
-        /* @apply absolute inset-0 bg-[hsla(0,0%,7%,0.1)] -z-20; */
+        /* @apply absolute inset-0 bg-[hsla(0,0%,85%,0.6)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)] pointer-events-none; */
+        /* @apply absolute inset-0 bg-[rgba(255,255,255,0.7)] -z-20  pointer-events-none; */
+        @apply absolute inset-0 bg-[hsla(0,0%,7%,0.8)] -z-20 pointer-events-none;
     }
 
     .prose-config {
@@ -34,7 +35,7 @@
     }
 
     .main--sub-section {
-        @apply flex flex-col justify-center items-center p-1 lg:px-14 test-border;
+        @apply flex flex-col justify-center items-center mt-8 lg:px-14 lg:m-0 test-border;
     }
 
     .sub-section--other-data {
@@ -90,7 +91,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-black rounded-lg dark:bg-white;
+        @apply bg-black/70 rounded-lg dark:bg-white/70;
     }
 
     .error-modal {

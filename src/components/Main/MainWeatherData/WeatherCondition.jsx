@@ -6,7 +6,7 @@ function WeatherCondition({ weatherCondition }) {
     const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weatherCondition["icon"]}.svg`;
 
     return (
-        <article className="main--sub-section ">
+        <article className="main--sub-section">
             <img
                 src={icon}
                 alt="Cloudy"

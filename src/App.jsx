@@ -23,7 +23,7 @@ function App() {
 
     return (
         <React.Fragment>
-            <Overlay />
+            {/* <Overlay /> */}
             <Header apikey={APIKey} handleCityInput={getCity} />
             <Main
                 apikey={APIKey}
