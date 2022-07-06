@@ -10,7 +10,7 @@ function WeatherCondition({ weatherCondition }) {
             <img
                 src={icon}
                 alt="Cloudy"
-                className="h-32 w-32 m-0 test-border svg-filter-black dark:svg-filter-white lg:h-56 lg:w-56 "
+                className="h-32 w-32 m-0 test-border svg-filter-black dark:svg-filter-white breakpoint:h-56 breakpoint:w-56 "
             />
 
             <h2 className="m-0 p-0 font-bold uppercase test-border tracking-widest">

@@ -32,12 +32,12 @@ function TemperatureData({ city, rawDate, country, mainTemperature, handleTemper
             </div>
 
             <div className="flex items-center my-4 test-border">
-                <h1 className=" m-0 p-0 text-6xl tracking-wide lg:text-8xl lg:self-end test-border">
+                <h1 className=" m-0 p-0 text-6xl tracking-wide breakpoint:text-8xl breakpoint:self-end test-border">
                     {handleTemperature(mainTemperature.temp)}
                 </h1>
                 <div className="flex flex-col justify-between h-full px-1 test-border">
-                    <h2 className="m-0 p-0 font-extrabold lg:pt-4">°</h2>
-                    <h2 className="m-0 p-0 text-3xl font-light lg:text-5xl">
+                    <h2 className="m-0 p-0 font-extrabold breakpoint:pt-4">°</h2>
+                    <h2 className="m-0 p-0 text-3xl font-light breakpoint:text-5xl">
                         {unitType === "Metric" ? "C" : "F"}
                     </h2>
                 </div>

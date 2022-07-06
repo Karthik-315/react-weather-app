@@ -36,10 +36,10 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
         <article className="main--sub-section sub-section--other-data">
             <div className="other-data-container group ">
                 <FontAwesomeIcon icon={faGaugeHigh} className="other-data-icon" />
-                <p className="other-data-text">{pressure} mb</p>
+                <p className="other-data-text text-left">{pressure} mb</p>
             </div>
 
-            <div className="other-data-container other-data-container--active group ">
+            <div className="other-data-container other-data-container--actives group ">
                 <FontAwesomeIcon icon={faWind} className="other-data-icon" />
                 <p className="other-data-text">
                     {unitType === "Metric"

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+    --bg-image: "bg-evening-clear-2";
+}
+
 @layer components {
     #root {
         @apply relative min-h-screen;
@@ -12,38 +16,34 @@
     }
 
     html {
-        @apply h-full text-xs font-inter lg:text-sm;
+        @apply h-full text-xs font-inter breakpoint:text-sm;
     }
 
     body {
-        @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed
-        bg-[url("./assets/images/bg-medium/bg-evening-clear-2.jpg")] font-mono;
-    }
+        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[url("./assets/images/bg-medium/var(--bg-image).jpg")] font-mono; */
+        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[url("./assets/images/bg-medium/bg-evening-clear-2.jpg")] font-mono; */
 
-    .overlay {
-        /* @apply absolute inset-0 bg-[hsla(0,0%,85%,0.6)] -z-20 dark:bg-[hsla(0,0%,7%,0.6)] pointer-events-none; */
-        /* @apply absolute inset-0 bg-[rgba(255,255,255,0.7)] -z-20  pointer-events-none; */
-        @apply absolute inset-0 bg-[hsla(0,0%,7%,0.8)] -z-20 pointer-events-none;
+        @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed font-inter;
     }
 
     .prose-config {
-        @apply prose lg:prose-xl dark:prose-invert max-w-none
-          prose-headings:m-0 prose-headings:font-medium prose-headings:p-1 prose-headings:text-black lg:prose-headings:p-2 dark:prose-headings:text-white
-          prose-h1:text-6xl lg:prose-h1:text-9xl
-          prose-h3:text-base prose-h3:font-semibold lg:prose-h3:text-xl
-        prose-p:text-black dark:prose-p:text-white prose-p:text-base lg:prose-p:text-lg;
+        @apply prose breakpoint:prose-xl dark:prose-invert max-w-none
+          prose-headings:m-0 prose-headings:font-medium prose-headings:p-1 prose-headings:text-black breakpoint:prose-headings:p-2 dark:prose-headings:text-white
+          prose-h1:text-6xl breakpoint:prose-h1:text-9xl
+          prose-h3:text-base prose-h3:font-semibold breakpoint:prose-h3:text-xl
+        prose-p:text-black dark:prose-p:text-white prose-p:text-base breakpoint:prose-p:text-lg;
     }
 
     .main--sub-section {
-        @apply flex flex-col justify-center items-center mt-8 lg:px-14 lg:m-0 test-border;
+        @apply flex flex-col justify-center items-center mt-8 breakpoint:px-14 breakpoint:m-0 test-border;
     }
 
     .sub-section--other-data {
-        @apply flex-row col-span-2 lg:flex-col;
+        @apply mt-10 flex-row col-span-2 breakpoint:flex-col breakpoint:mt-0;
     }
 
     .min-max-container {
-        @apply flex items-center mx-1.5 opacity-90 lg:mx-10;
+        @apply flex items-center mx-1.5 opacity-90 breakpoint:mx-10;
     }
 
     .min-max-temperature {
@@ -55,8 +55,8 @@
     }
 
     .other-data-container {
-        @apply flex justify-center items-center w-full mt-14 p-2 opacity-70 scale-90
-        transition-[transform_opacity] duration-300 ease-in lg:mt-4 lg:scale-[70%];
+        @apply flex justify-center items-center w-full mt-0 p-2 opacity-70 scale-90 test-border
+        transition-[transform_opacity] duration-300 ease-in breakpoint:my-2 breakpoint:scale-[70%];
     }
 
     .other-data-container--active {
@@ -64,11 +64,11 @@
     }
 
     .other-data-icon {
-        @apply h-6 w-6 lg:px-4;
+        @apply h-6 w-6 breakpoint:px-4;
     }
 
     .other-data-text {
-        @apply grow-0 m-0 ml-2 text-sm font-normal text-center lg:grow lg:text-2xl md:text-left;
+        @apply grow-0 m-0 ml-2 text-sm font-normal text-center breakpoint:grow breakpoint:text-2xl breakpoint:text-left;
     }
 
     .svg-filter-black {
@@ -95,6 +95,6 @@
     }
 
     .error-modal {
-        @apply w-full mt-36 rounded bg-slate-50 shadow-xl dark:bg-slate-700 z-20 lg:mt-24 lg:w-1/2 lg:m-0;
+        @apply w-full mt-36 rounded bg-slate-50 shadow-xl dark:bg-slate-700 z-20 breakpoint:mt-24 breakpoint:w-1/2 breakpoint:m-0;
     }
 }

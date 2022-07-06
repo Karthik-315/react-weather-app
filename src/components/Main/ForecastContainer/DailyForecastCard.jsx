@@ -54,7 +54,7 @@ function DailyForecastCard({
                         {unitType === "Metric" ? "C" : "F"}
                     </span>
                 </p>
-                <span className="px-0.5 font-thin lg:px-1.5">/</span>
+                <span className="px-0.5 font-thin breakpoint:px-1.5">/</span>
                 <p className="m-0">
                     {handleTemperature(maxTemp)}°
                     <span className="text-xs font-bold">

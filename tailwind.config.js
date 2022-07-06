@@ -3,6 +3,9 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     darkMode: "class",
     theme: {
+        screens: {
+            breakpoint: "1024px",
+        },
         extend: {
             fontFamily: {
                 inter: ["Inter", "sans-serif"],

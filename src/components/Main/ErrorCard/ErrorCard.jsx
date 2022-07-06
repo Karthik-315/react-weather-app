@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function ErrorCard({ errorMessage, handleCloseError }) {
-    let customErrorMessage;
+    let customErrorMessage, customErrorMessageLineTwo;
 
     // Custom error messages from the GOD himself
     switch (errorMessage.toLowerCase()) {
@@ -20,6 +20,13 @@ function ErrorCard({ errorMessage, handleCloseError }) {
         case "invalid api key. please see http://openweathermap.org/faq#error401 for more info.":
             customErrorMessage = `Looks like there's a problem with the API Key. If you are running this locally, make sure to take a 
             look at the README file.`;
+            break;
+
+        case "user denied geolocation":
+            customErrorMessage = `What you don't trust me?! You think I'm gonna track you down? I promise you, I need your location data
+            just to provide to you the weather information of your location.`;
+
+            customErrorMessageLineTwo = `I have other ways to track you down... Ahem... Forget that part.`;
             break;
 
         default:
@@ -70,7 +77,12 @@ function ErrorCard({ errorMessage, handleCloseError }) {
                 </h3>
             </article>
             <article className="flex flex-col items-center p-6">
-                <p className="p-0 text-center text-2xl lg:p-4">{customErrorMessage}</p>
+                <p className="p-0 text-center text-2xl breakpoint:p-4">
+                    {customErrorMessage}
+                    <br />
+                    <br />
+                    {customErrorMessageLineTwo}
+                </p>
 
                 <button
                     className="w-fit mt-4 p-4 text-2xl font-medium text-white uppercase bg-red-400 shadow-lg shadow-red-400/50 hover:shadow-none transition-shadow duration-200

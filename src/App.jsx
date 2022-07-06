@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Overlay from "./components/Overlay";
 import Main from "./components/Main/Main";
 
 function App() {
@@ -21,9 +20,18 @@ function App() {
         setIsCitySearch(false);
     }
 
+    function setBG() {
+        console.log(`Setting BG`);
+        document.body.style.backgroundImage =
+            "url('./assets/images/bg-medium/bg-evening-clear-2.jpg')";
+    }
+
+    useEffect(() => {
+        setBG();
+    }, []);
+
     return (
         <React.Fragment>
-            {/* <Overlay /> */}
             <Header apikey={APIKey} handleCityInput={getCity} />
             <Main
                 apikey={APIKey}
