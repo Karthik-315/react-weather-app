@@ -9,8 +9,8 @@ module.exports = {
         extend: {
             backgroundImage: {
                 dawn: "url('./assets/images/bg-medium/bg-dawn.jpg')",
-                morning: "url('./assets/images/bg-medium/bg-morning-clear-beach-2.jpg')",
-                evening: "url('./assets/images/bg-medium/bg-evening-clear.jpg')",
+                morning: "url('./assets/images/bg-medium/bg-morning.jpg')",
+                evening: "url('./assets/images/bg-medium/bg-evening.jpg')",
                 night: "url('./assets/images/bg-medium/bg-night-clear-moon.jpg')",
             },
 
