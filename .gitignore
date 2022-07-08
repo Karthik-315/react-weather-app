@@ -1,5 +1,6 @@
 # Build and dependencies
 node_modules/
+*/bg-backup/
 # dist/
 
 # ENV

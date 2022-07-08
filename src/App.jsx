@@ -7,6 +7,7 @@ function App() {
     const [isCitySearch, setIsCitySearch] = useState(false);
     const [cityCurrentURL, setCityCurrentURL] = useState();
     const [cityForecastURL, setCityForecastURL] = useState();
+    const [useDarkMode, setUseDarkMode] = useState();
 
     const APIKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
@@ -21,14 +22,37 @@ function App() {
     }
 
     function setBG() {
-        console.log(`Setting BG`);
-        document.body.style.backgroundImage =
-            "url('./assets/images/bg-medium/bg-evening-clear-2.jpg')";
+        // const currentHour = new Date().getHours();
+        const currentHour = 6;
+        let bgImage;
+
+        if ((currentHour > 5) & (currentHour < 9)) {
+            bgImage = "bg-dawn";
+            setUseDarkMode(true);
+        } else if ((currentHour >= 9) & (currentHour < 16)) {
+            bgImage = "bg-morning";
+            setUseDarkMode(false);
+        } else if (currentHour >= 16 && currentHour < 19) {
+            bgImage = "bg-evening";
+            setUseDarkMode(true);
+        } else {
+            bgImage = "bg-night";
+            setUseDarkMode(true);
+        }
+
+        // Set relavant theme
+        if (useDarkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        document.body.className = bgImage;
     }
 
     useEffect(() => {
         setBG();
-    }, []);
+    }, [useDarkMode]);
 
     return (
         <React.Fragment>

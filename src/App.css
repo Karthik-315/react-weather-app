@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-    --bg-image: "bg-evening-clear-2";
+:root {
+    --bg-image: "./assets/images/bg-medium/bg-evening-clear.jpg";
 }
 
 @layer components {
@@ -21,7 +21,7 @@
 
     body {
         /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[url("./assets/images/bg-medium/var(--bg-image).jpg")] font-mono; */
-        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[url("./assets/images/bg-medium/bg-evening-clear-2.jpg")] font-mono; */
+        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[image:var(--bg-image)] font-mono; */
 
         @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed font-inter;
     }

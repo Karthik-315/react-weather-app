@@ -7,6 +7,13 @@ module.exports = {
             breakpoint: "1024px",
         },
         extend: {
+            backgroundImage: {
+                dawn: "url('./assets/images/bg-medium/bg-dawn.jpg')",
+                morning: "url('./assets/images/bg-medium/bg-morning-clear-beach-2.jpg')",
+                evening: "url('./assets/images/bg-medium/bg-evening-clear.jpg')",
+                night: "url('./assets/images/bg-medium/bg-night-clear-moon.jpg')",
+            },
+
             fontFamily: {
                 inter: ["Inter", "sans-serif"],
             },
