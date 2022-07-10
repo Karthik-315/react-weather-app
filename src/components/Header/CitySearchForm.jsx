@@ -24,12 +24,12 @@ function CitySearchForm({ handleCitySearch }) {
         <input
           type="search"
           placeholder="Search For A Specific City"
-          className="required h-full grow rounded-l border-0 bg-neutral-600/40 p-3 tracking-wider text-white outline-0 placeholder:text-neutral-100 md:text-2xl"
+          className="required h-full grow rounded-l border-0 bg-neutral-600/40 p-3 tracking-wider text-light outline-0 placeholder:text-neutral-100 md:text-2xl"
           name="city"
           onChange={readInputCity}
           value={cityName}
         />
-        <button className="h-full rounded-r bg-neutral-600/40 p-3 px-5 text-white">
+        <button className="h-full rounded-r bg-neutral-600/40 p-3 px-5 text-light">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>

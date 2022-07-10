@@ -30,6 +30,8 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
     }, animationTime);
   }
 
+  function scrollAnimation() {}
+
   useEffect(() => {
     animateData();
 
@@ -37,8 +39,8 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
   });
 
   return (
-    <article className="main--sub-section sub-section--other-data">
-      <div className="other-data-container group justify-start lg:justify-center">
+    <article className="main--sub-section sub-section--other-data bg-red-200">
+      <div className="other-data-container group justify-start bg-red-400 lg:justify-center">
         <FontAwesomeIcon icon={faGaugeHigh} className="other-data-icon" />
         <p className="other-data-text">
           {pressure}
@@ -46,19 +48,19 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
         </p>
       </div>
 
-      <div className="other-data-container other-data-container--actives group ">
+      <div className="other-data-container group bg-red-400 ">
         <FontAwesomeIcon icon={faWind} className="other-data-icon" />
         <p className="other-data-text">
           {unitType === "Metric"
             ? `${windSpeed.toFixed(1)}`
-            : `${(windSpeed / 1.609).toFixed(1)} mph`}
+            : `${(windSpeed / 1.609).toFixed(1)}`}
           <span className="unit-text">
             {unitType === "Metric" ? ` kmph` : ` mph`}
           </span>
         </p>
       </div>
 
-      <div className="other-data-container group justify-end lg:justify-center">
+      <div className="other-data-container group justify-end bg-red-400 lg:justify-center">
         <FontAwesomeIcon icon={faDroplet} className="other-data-icon" />
         <p className="other-data-text">
           {humidity}

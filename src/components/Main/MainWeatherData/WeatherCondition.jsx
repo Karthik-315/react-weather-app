@@ -8,10 +8,10 @@ function WeatherCondition({ weatherCondition }) {
       <img
         src={icon}
         alt="Cloudy"
-        className="test-border svg-filter-black dark:svg-filter-white m-0 h-32 w-32 md:h-56 md:w-56"
+        className="svg-filter-black dark:svg-filter-white m-0 h-32 w-32 md:h-56 md:w-56"
       />
 
-      <h3 className="test-border text-3xl font-medium uppercase tracking-widest md:text-5xl">
+      <h3 className="text-3xl font-medium uppercase tracking-widest md:text-5xl">
         {weatherCondition.main}
       </h3>
     </article>

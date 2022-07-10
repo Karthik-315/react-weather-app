@@ -36,17 +36,20 @@ function Main({
     }
   }
 
-  // To determine using Metric or Imperial Units
+  // To determine using Metric or Imperial Units based on user location
   function getUserCountry() {
+    const ipRegAPIKey = import.meta.env.VITE_LOCATION_API_KEY;
+    const ipRegURL = `https://api.ipregistry.co/?key=${ipRegAPIKey}`;
+
     axios
-      .get("http://ip-api.com/json")
-      .then((response) => {
-        ["US", "MM", "LR"].includes(response?.data?.countryCode) &&
+      .get(ipRegURL)
+      .then(({ data }) => {
+        // After some research, only the US, Myanmar and Liberia use imperial units.
+        ["US", "MM", "LR"].includes(data.location.country.code) &&
           setUnitType("Imperial");
       })
       .catch((error) => {
-        setHasErrors(true);
-        setErrorMessage(error.message);
+        return;
       });
   }
 

@@ -26,18 +26,18 @@ function TemperatureData({
 
   return (
     <article className="main--sub-section h-full justify-self-end">
-      <div className="test-border">
+      <div>
         <p className="m-0 text-lg font-medium uppercase tracking-wider md:text-2xl">
           {city}
           <span>, {country}</span>
         </p>
       </div>
 
-      <div className="test-border my-4 flex items-center">
-        <h2 className=" test-border m-0 p-0 text-6xl tracking-wider md:text-9xl">
+      <div className="my-4 flex items-center">
+        <h2 className="m-0 p-0 text-6xl tracking-wider md:text-9xl">
           {handleTemperature(mainTemperature.temp)}
         </h2>
-        <div className="test-border flex h-full flex-col justify-between px-1">
+        <div className="flex h-full flex-col justify-between px-1">
           <h3 className="m-0 text-3xl md:text-6xl">°</h3>
           <h3 className="m-0 text-3xl font-extralight md:text-6xl">
             {unitType === "Metric" ? "C" : "F"}
