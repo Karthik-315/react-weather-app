@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
-      screens: {
-        breakpoint: "1024px",
+      colors: {
+        light: colors.white,
+        dark: colors.black,
       },
+
       backgroundImage: {
         dawn: "url('./assets/images/bg-medium/bg-dawn.jpg')",
         morning: "url('./assets/images/bg-medium/bg-morning.jpg')",
@@ -16,7 +20,6 @@ module.exports = {
       },
 
       fontFamily: {
-        // poppins: ["Trispace", "sans-serif"],
         "ibm-plex-mono": ["IBM Plex Mono", "sans-serif"],
       },
     },

@@ -31,7 +31,7 @@ function Main({
     } else {
       setHasErrors(true);
       setErrorMessage(
-        "HAHAHA! LOL! Your browser does not support Geo Location, bro! What a Noob!"
+        "HAHAHA! LMAO! Your browser does not support Geo Location, bro! What a Noob!"
       );
     }
   }
