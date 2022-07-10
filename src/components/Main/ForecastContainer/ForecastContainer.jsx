@@ -41,7 +41,7 @@ function ForecastContainer({
     }, [weatherURL]);
 
     return (
-        <section className="flex gap-x-2 mt-10 pb-2 w-full overflow-x-auto breakpoint:grid breakpoint:grid-cols-8 breakpoint:w-11/12">
+        <section className="mt-10 flex w-full gap-x-2 overflow-x-auto pb-2 lg:grid lg:w-11/12 lg:grid-cols-8">
             {forecastData &&
                 forecastData.map((data) => (
                     <DailyForecastCard

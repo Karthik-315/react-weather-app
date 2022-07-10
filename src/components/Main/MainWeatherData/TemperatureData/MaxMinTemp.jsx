@@ -7,12 +7,9 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
     const unitType = useContext(UnitContext);
 
     return (
-        <div className="test-border flex w-full justify-center opacity-95">
+        <div className="test-border flex w-full justify-between opacity-95 md:mt-8">
             <div className="min-max-container">
-                <FontAwesomeIcon
-                    icon={faArrowDownLong}
-                    className="h-3 w-auto px-1 breakpoint:h-6"
-                />
+                <FontAwesomeIcon icon={faArrowDownLong} className="min-max-icon" />
                 <p className="min-max-temperature">{handleTemperature(minTemp)}</p>
                 <div>
                     <p>
@@ -25,10 +22,7 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
             </div>
 
             <div className="min-max-container">
-                <FontAwesomeIcon
-                    icon={faArrowUpLong}
-                    className="h-3 w-auto px-1 breakpoint:h-6"
-                />
+                <FontAwesomeIcon icon={faArrowUpLong} className="min-max-icon" />
                 <p className="min-max-temperature">{handleTemperature(maxTemp)}</p>
                 <div>
                     <p>

@@ -34,23 +34,32 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
 
     return (
         <article className="main--sub-section sub-section--other-data">
-            <div className="other-data-container group ">
+            <div className="other-data-container group justify-start lg:justify-center">
                 <FontAwesomeIcon icon={faGaugeHigh} className="other-data-icon" />
-                <p className="other-data-text text-left">{pressure} mb</p>
+                <p className="other-data-text">
+                    {pressure}
+                    <span className="unit-text"> mb</span>
+                </p>
             </div>
 
             <div className="other-data-container other-data-container--actives group ">
                 <FontAwesomeIcon icon={faWind} className="other-data-icon" />
                 <p className="other-data-text">
                     {unitType === "Metric"
-                        ? `${windSpeed.toFixed(1)} kmph`
+                        ? `${windSpeed.toFixed(1)}`
                         : `${(windSpeed / 1.609).toFixed(1)} mph`}
+                    <span className="unit-text">
+                        {unitType === "Metric" ? ` kmph` : ` mph`}
+                    </span>
                 </p>
             </div>
 
-            <div className="other-data-container group ">
+            <div className="other-data-container group justify-end lg:justify-center">
                 <FontAwesomeIcon icon={faDroplet} className="other-data-icon" />
-                <p className="other-data-text">{humidity} %</p>
+                <p className="other-data-text">
+                    {humidity}
+                    <span className="unit-text"> %</span>
+                </p>
             </div>
         </article>
     );

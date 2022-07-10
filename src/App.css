@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --bg-image: "./assets/images/bg-medium/bg-evening-clear.jpg";
-}
-
 @layer components {
     #root {
-        @apply relative min-h-screen;
+        @apply relative min-h-screen w-full max-w-[1920px];
     }
 
     .test-border {
@@ -16,59 +12,56 @@
     }
 
     html {
-        @apply h-full text-xs font-inter breakpoint:text-sm;
+        @apply h-full font-ibm-plex-mono text-xs breakpoint:text-sm;
     }
 
     body {
-        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[url("./assets/images/bg-medium/var(--bg-image).jpg")] font-mono; */
-        /* @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed bg-[image:var(--bg-image)] font-mono; */
-
-        @apply min-h-full bg-no-repeat bg-cover bg-center bg-fixed font-inter;
-    }
-
-    .prose-config {
-        @apply prose breakpoint:prose-xl dark:prose-invert max-w-none
-          prose-headings:m-0 prose-headings:font-medium prose-headings:p-1 prose-headings:text-black breakpoint:prose-headings:p-2 dark:prose-headings:text-white
-          prose-h1:text-6xl breakpoint:prose-h1:text-9xl
-          prose-h3:text-base prose-h3:font-semibold breakpoint:prose-h3:text-xl
-        prose-p:text-black dark:prose-p:text-white prose-p:text-base breakpoint:prose-p:text-lg;
+        @apply flex min-h-full w-full justify-center bg-cover bg-fixed bg-center bg-no-repeat text-black dark:text-white;
     }
 
     .main--sub-section {
-        @apply flex flex-col justify-center items-center mt-8 breakpoint:px-14 breakpoint:m-0 test-border;
-    }
-
-    .sub-section--other-data {
-        @apply mt-10 flex-row col-span-2 breakpoint:flex-col breakpoint:mt-0;
+        @apply test-border flex flex-col items-center justify-center;
     }
 
     .min-max-container {
-        @apply flex items-center mx-1.5 opacity-90 breakpoint:mx-10;
+        @apply mx-1.5 flex items-center opacity-90 breakpoint:mx-10;
+    }
+
+    .min-max-icon {
+        @apply h-3 w-auto px-1 lg:h-6;
     }
 
     .min-max-temperature {
-        @apply m-0 p-0;
+        @apply m-0 p-0 font-medium;
     }
 
     .min-max-unit-text {
-        @apply text-sm font-semibold;
+        @apply text-sm font-bold;
+    }
+
+    .sub-section--other-data {
+        @apply col-span-2 mt-20 flex-row md:mt-48 lg:static lg:my-0 lg:flex-col;
     }
 
     .other-data-container {
-        @apply flex justify-center items-center w-full mt-0 p-2 opacity-70 scale-90 test-border
-        transition-[transform_opacity] duration-300 ease-in breakpoint:my-2 breakpoint:scale-[70%];
+        @apply test-border mt-0 flex w-full items-center justify-center p-2
+        opacity-50 transition-[transform_opacity] duration-300 ease-in lg:my-4;
     }
 
     .other-data-container--active {
-        @apply opacity-100 scale-100;
+        @apply opacity-100;
     }
 
     .other-data-icon {
-        @apply h-6 w-6 breakpoint:px-4;
+        @apply h-6 w-6 lg:px-4;
     }
 
     .other-data-text {
-        @apply grow-0 m-0 ml-2 text-sm font-normal text-center breakpoint:grow breakpoint:text-2xl breakpoint:text-left;
+        @apply m-0 ml-2 font-medium md:text-2xl;
+    }
+
+    .unit-text {
+        @apply text-sm md:text-2xl;
     }
 
     .svg-filter-black {
@@ -91,10 +84,10 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-black/70 rounded-lg dark:bg-white/70;
+        @apply rounded-lg bg-black/70 dark:bg-white/70;
     }
 
     .error-modal {
-        @apply w-full mt-36 rounded bg-slate-50 shadow-xl dark:bg-slate-700 z-20 breakpoint:mt-24 breakpoint:w-1/2 breakpoint:m-0;
+        @apply z-20 mt-36 w-full rounded bg-slate-50 shadow-xl dark:bg-slate-700 breakpoint:m-0 breakpoint:mt-24 breakpoint:w-1/2;
     }
 }

@@ -53,7 +53,7 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
 
     function closeErrorMessage() {
         setHasErrors(false);
-        resetPref();
+        resetPref(); //Clear Error Message data and back to home screen
     }
 
     useEffect(() => {
@@ -63,7 +63,7 @@ function Main({ apikey, isCitySearch, cityCurrentURL, cityForecastURL, resetPref
 
     return (
         <UnitContext.Provider value={unitType}>
-            <main className="flex flex-col justify-between items-center prose-config min-h-[calc(100vh_-_8rem)] p-2 py-4 breakpoint:min-h-[calc(100vh_-_5rem)] test-border">
+            <main className="flex min-h-[calc(100vh_-_8rem)] flex-col items-center justify-between p-2 py-4 md:p-8 md:px-14 lg:min-h-[calc(100vh_-_5rem)] lg:p-0">
                 {!hasErrors ? (
                     coords && (
                         <>

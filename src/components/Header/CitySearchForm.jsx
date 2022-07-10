@@ -16,20 +16,20 @@ function CitySearchForm({ handleCitySearch }) {
     }
 
     return (
-        <section className="w-full p-2 breakpoint:w-1/2">
+        <section className="w-full md:w-1/2">
             <form
                 onSubmit={setInputCity}
-                className="flex justify-between items-center rounded hover:ring hover:ring-neutral-200 transition-shadow"
+                className="flex h-14 items-center justify-between rounded transition-shadow hover:ring hover:ring-neutral-200"
             >
                 <input
                     type="search"
                     placeholder="Search For A Specific City"
-                    className="p-3 grow text-white rounded-l border-0 outline-0 bg-neutral-600/40 placeholder:text-neutral-100 required"
+                    className="required h-full grow rounded-l border-0 bg-neutral-600/40 p-3 tracking-wider text-white outline-0 placeholder:text-neutral-100 md:text-2xl"
                     name="city"
                     onChange={readInputCity}
                     value={cityName}
                 />
-                <button className="p-3 px-5 text-white rounded-r bg-neutral-600/40">
+                <button className="h-full rounded-r bg-neutral-600/40 p-3 px-5 text-white">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </form>

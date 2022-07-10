@@ -31,10 +31,12 @@ function DailyForecastCard({
     }
 
     return (
-        <article className="flex flex-col justify-center items-center w-full px-5 test-border">
+        <article className="test-border flex w-full flex-col items-center justify-center px-5">
             <div>
-                <p className="m-0 mt-2 text-center">{formatForecastDate(rawDate).day}</p>
-                <p className="m-0 mb-4 text-sm font-semibold text-center opacity-80">
+                <p className="m-0 mt-2 text-center font-medium">
+                    {formatForecastDate(rawDate).day}
+                </p>
+                <p className="m-0 mb-4 text-center text-sm font-medium opacity-80">
                     {formatForecastDate(rawDate).time}
                 </p>
             </div>
@@ -43,19 +45,19 @@ function DailyForecastCard({
                 <img
                     src={weatherIcon}
                     alt="icon"
-                    className="h-20 w-20 m-0 svg-filter-black dark:svg-filter-white peer"
+                    className="svg-filter-black dark:svg-filter-white peer m-0 h-20 w-20"
                 />
             </div>
 
-            <div className="flex items-center mt-4">
-                <p className="m-0">
+            <div className="mt-4 flex items-center">
+                <p className="m-0 font-medium">
                     {handleTemperature(minTemp)}°
                     <span className="text-xs font-bold">
                         {unitType === "Metric" ? "C" : "F"}
                     </span>
                 </p>
-                <span className="px-0.5 font-thin breakpoint:px-1.5">/</span>
-                <p className="m-0">
+                <span className="px-0.5 lg:px-1.5">/</span>
+                <p className="m-0 font-medium">
                     {handleTemperature(maxTemp)}°
                     <span className="text-xs font-bold">
                         {unitType === "Metric" ? "C" : "F"}

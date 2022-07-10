@@ -22,15 +22,18 @@ function App() {
     }
 
     function setBG() {
-        const currentHour = new Date().getHours();
-
+        // const currentHour = new Date().getHours();
+        const currentHour = 7;
         let bgImage;
 
         if ((currentHour > 5) & (currentHour < 9)) {
             bgImage = "bg-dawn";
             setUseDarkMode(true);
-        } else if ((currentHour >= 9) & (currentHour < 16)) {
+        } else if ((currentHour >= 9) & (currentHour < 13)) {
             bgImage = "bg-morning";
+            setUseDarkMode(false);
+        } else if ((currentHour >= 13) & (currentHour < 16)) {
+            bgImage = "bg-noon";
             setUseDarkMode(false);
         } else if (currentHour >= 16 && currentHour < 19) {
             bgImage = "bg-evening";

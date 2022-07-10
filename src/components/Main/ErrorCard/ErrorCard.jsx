@@ -65,8 +65,8 @@ function ErrorCard({ errorMessage, handleCloseError }) {
 
     return (
         <section className="error-modal">
-            <article className="relative p-4 h-24">
-                <div className="absolute -top-[80%] left-1/2 p-5 rounded-full -translate-x-1/2 bg-red-400 outline-4 outline-none outline-offset-0 outline-slate-50 dark:outline-slate-700 shadow-2xl ring-8 ring-red-400">
+            <article className="relative h-24 p-4">
+                <div className="absolute -top-[80%] left-1/2 -translate-x-1/2 rounded-full bg-red-400 p-5 shadow-2xl outline-none outline-4 outline-offset-0 outline-slate-50 ring-8 ring-red-400 dark:outline-slate-700">
                     <FontAwesomeIcon
                         icon={faTriangleExclamation}
                         className="h-14 w-14 text-neutral-100"
@@ -77,7 +77,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
                 </h3>
             </article>
             <article className="flex flex-col items-center p-6">
-                <p className="p-0 text-center text-2xl breakpoint:p-4">
+                <p className="p-0 text-center text-2xl lg:p-4">
                     {customErrorMessage}
                     <br />
                     <br />
@@ -85,8 +85,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
                 </p>
 
                 <button
-                    className="w-fit mt-4 p-4 text-2xl font-medium text-white uppercase bg-red-400 shadow-lg shadow-red-400/50 hover:shadow-none transition-shadow duration-200
-                    "
+                    className="mt-4 w-fit bg-red-400 p-4 text-2xl font-medium uppercase text-white shadow-lg shadow-red-400/50 transition-shadow duration-200 hover:shadow-none"
                     onClick={handleCloseError}
                 >
                     Ok, I Understand

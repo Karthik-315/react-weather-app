@@ -1,21 +1,19 @@
 import React from "react";
 
 function WeatherCondition({ weatherCondition }) {
-    const weatherIcon = `http://openweathermap.org/img/wn/${weatherCondition.icon}@4x.png`;
-    // const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weatherCondition["icon"]}.svg`;
     const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weatherCondition["icon"]}.svg`;
 
     return (
-        <article className="main--sub-section">
+        <article className="main--sub-section h-full justify-self-start">
             <img
                 src={icon}
                 alt="Cloudy"
-                className="h-32 w-32 m-0 test-border svg-filter-black dark:svg-filter-white breakpoint:h-56 breakpoint:w-56 "
+                className="test-border svg-filter-black dark:svg-filter-white m-0 h-32 w-32 md:h-56 md:w-56"
             />
 
-            <h2 className="m-0 p-0 font-bold uppercase test-border tracking-widest">
+            <h3 className="test-border text-3xl font-medium uppercase tracking-widest md:text-5xl">
                 {weatherCondition.main}
-            </h2>
+            </h3>
         </article>
     );
 }

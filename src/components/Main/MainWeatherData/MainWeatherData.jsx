@@ -38,7 +38,7 @@ function MainWeatherData({
     }, [weatherURL]);
 
     return (
-        <section className="grid grid-cols-2 grid-rows-1 w-full breakpoint:flex breakpoint:justify-between breakpoint:items-center breakpoint:w-11/12 breakpoint:py-5 test-border">
+        <section className="mt-4 grid w-full grid-cols-2 grid-rows-1 md:mt-20 lg:mt-10 lg:flex lg:w-11/12 lg:items-center lg:justify-between">
             {weatherData && (
                 <>
                     <WeatherCondition weatherCondition={weatherData.weather[0]} />
