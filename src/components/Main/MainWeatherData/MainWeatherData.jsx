@@ -40,7 +40,7 @@ function MainWeatherData({
   return (
     <section className="mt-4 grid w-full grid-cols-2 grid-rows-1 md:mt-20 lg:mt-10 lg:flex lg:w-11/12 lg:items-center lg:justify-between">
       {weatherData && (
-        <>
+        <React.Fragment>
           <WeatherCondition weatherCondition={weatherData.weather[0]} />
           <TemperatureData
             city={weatherData.name}
@@ -54,7 +54,7 @@ function MainWeatherData({
             humidity={weatherData.main.humidity}
             windSpeed={weatherData.wind.speed}
           />
-        </>
+        </React.Fragment>
       )}
     </section>
   );

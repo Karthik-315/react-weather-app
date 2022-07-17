@@ -13,27 +13,16 @@ function TemperatureData({
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const unitType = useContext(UnitContext);
 
-  function formatForecastDate(rawDate) {
-    const formattedDate = new Date(rawDate * 1000);
-    const currentDate = `${formattedDate.getDate()}`.padStart(2, 0);
-    const currentMonth = `${months[formattedDate.getMonth()]}`;
-    const currentYear = `${formattedDate.getFullYear()}`;
-
-    let formattedDateString = `${currentDate} ${currentMonth}, ${currentYear}`;
-
-    return formattedDateString;
-  }
-
   return (
     <article className="main--sub-section h-full justify-self-end">
       <div>
-        <p className="m-0 text-lg font-medium uppercase tracking-wider md:text-2xl">
+        <p className="m-0 text-center text-lg font-medium uppercase tracking-wider md:text-2xl">
           {city}
           <span>, {country}</span>
         </p>
       </div>
 
-      <div className="my-4 flex items-center">
+      <article className="my-4 flex items-center">
         <h2 className="m-0 p-0 text-6xl tracking-wider md:text-9xl">
           {handleTemperature(mainTemperature.temp)}
         </h2>
@@ -43,7 +32,7 @@ function TemperatureData({
             {unitType === "Metric" ? "C" : "F"}
           </h3>
         </div>
-      </div>
+      </article>
 
       <MaxMinTemp
         minTemp={mainTemperature.temp_min}

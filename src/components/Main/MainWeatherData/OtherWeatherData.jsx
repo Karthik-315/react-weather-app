@@ -30,25 +30,56 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
     }, animationTime);
   }
 
-  function scrollAnimation() {}
+  function scrollAnimation() {
+    const otherDataContainer = document.querySelector(
+      ".sub-section--other-data"
+    ).children;
+
+    let currentActiveContainer = 1; // Container numbering starts with 0.
+
+    animateInterval = setInterval(() => {
+      console.log(`Current ACTIVE Container: ${currentActiveContainer}`);
+      Array.from(otherDataContainer).forEach((container, index) => {
+        // const translateFactor = index - currentActiveContainer;
+        const translateFactor = currentActiveContainer;
+
+        if (index === currentActiveContainer) {
+          container.classList.add("other-data-container--active");
+        } else {
+          container.classList.remove("other-data-container--active");
+        }
+
+        const translatePercent = 100 * translateFactor;
+
+        console.log(`Current Container: ${index} Percent: ${translatePercent}`);
+        container.style.transform = `translateY(${translatePercent}%)`;
+        // container.style.transform = `translateX(${translatePercent}%)`;
+      });
+      console.log(`---------`);
+      // currentActiveContainer++;
+      /* currentActiveContainer =
+        currentActiveContainer === 2 ? 0 : currentActiveContainer + 1; */
+    }, animationTime);
+  }
 
   useEffect(() => {
     animateData();
+    // scrollAnimation();
 
     return () => clearInterval(animateInterval);
   });
 
   return (
-    <article className="main--sub-section sub-section--other-data bg-red-200">
-      <div className="other-data-container group justify-start bg-red-400 lg:justify-center">
+    <section className="main--sub-section sub-section--other-data">
+      <article className="other-data-container container--top group justify-start lg:justify-center">
         <FontAwesomeIcon icon={faGaugeHigh} className="other-data-icon" />
         <p className="other-data-text">
           {pressure}
           <span className="unit-text"> mb</span>
         </p>
-      </div>
+      </article>
 
-      <div className="other-data-container group bg-red-400 ">
+      <article className="other-data-container container--middle group">
         <FontAwesomeIcon icon={faWind} className="other-data-icon" />
         <p className="other-data-text">
           {unitType === "Metric"
@@ -58,16 +89,16 @@ function OtherWeatherData({ pressure, humidity, windSpeed }) {
             {unitType === "Metric" ? ` kmph` : ` mph`}
           </span>
         </p>
-      </div>
+      </article>
 
-      <div className="other-data-container group justify-end bg-red-400 lg:justify-center">
+      <article className="other-data-container container--bottom group justify-end lg:justify-center">
         <FontAwesomeIcon icon={faDroplet} className="other-data-icon" />
         <p className="other-data-text">
           {humidity}
           <span className="unit-text"> %</span>
         </p>
-      </div>
-    </article>
+      </article>
+    </section>
   );
 }
 

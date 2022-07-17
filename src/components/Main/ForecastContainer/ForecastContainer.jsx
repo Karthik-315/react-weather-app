@@ -49,7 +49,6 @@ function ForecastContainer({
             key={nanoid()}
             rawDate={data.dt}
             icon={data.weather[0].icon}
-            forecastCondition={data.weather[0].main}
             minTemp={data.main.temp_min}
             maxTemp={data.main.temp_max}
             handleTemperature={handleTemperature}

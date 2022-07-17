@@ -26,7 +26,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
       customErrorMessage = `What you don't trust me?! You think I'm gonna track you down? I promise you, I need your location data
             just to provide to you the weather information of your location.`;
 
-      customErrorMessageLineTwo = `I have other ways to track you down... Ahem... Forget that part.`;
+      customErrorMessageLineTwo = `I have other ways to track you down... Ahem... Forget that part...`;
       break;
 
     default:
@@ -77,6 +77,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
           Oops! An Error Occured!
         </h3>
       </article>
+
       <article className="flex flex-col items-center p-6">
         <p className="p-0 text-center text-2xl lg:p-4">
           {customErrorMessage}
@@ -86,7 +87,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
         </p>
 
         <button
-          className="mt-4 w-fit bg-red-400 p-4 text-2xl font-medium uppercase text-white shadow-lg shadow-red-400/50 transition-shadow duration-200 hover:shadow-none"
+          className="mt-4 w-fit bg-red-400 p-4 text-2xl font-medium uppercase text-white shadow shadow-neutral-100/50 transition-shadow duration-200 hover:shadow-none"
           onClick={handleCloseError}
         >
           Ok, I Understand

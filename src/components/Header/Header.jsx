@@ -17,7 +17,7 @@ function Header({ apikey, handleCityInput }) {
 
   return (
     <header className="flex h-32 flex-col items-center justify-center p-2 lg:h-20 lg:flex-row  lg:justify-between">
-      <h1 className="m-0 my-2 py-4 text-2xl tracking-wider md:text-4xl">
+      <h1 className="m-0 my-2 py-4 text-center text-2xl font-medium tracking-wider md:text-4xl">
         Can You Go Out Today App
       </h1>
       <CitySearchForm handleCitySearch={getCityWeather} />

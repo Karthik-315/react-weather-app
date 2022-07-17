@@ -23,7 +23,6 @@ function App() {
 
   function setBG() {
     const currentHour = new Date().getHours();
-    // const currentHour = 7;
     let bgImage;
 
     if ((currentHour > 5) & (currentHour < 9)) {

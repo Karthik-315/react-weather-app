@@ -4,15 +4,12 @@ import UnitContext from "./../unit-context";
 function DailyForecastCard({
   rawDate,
   icon,
-  forecastCondition,
   minTemp,
   maxTemp,
   handleTemperature,
 }) {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const unitType = useContext(UnitContext);
-
-  // const weatherIcon = `http://openweathermap.org/img/wn/${icon}@4x.png`;
   const weatherIcon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${icon}.svg`;
 
   function formatForecastDate(inDate) {

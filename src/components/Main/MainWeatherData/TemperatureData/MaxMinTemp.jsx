@@ -11,7 +11,7 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
 
   return (
     <div className="flex w-full justify-between opacity-95 md:mt-8">
-      <div className="min-max-container">
+      <article className="min-max-container">
         <FontAwesomeIcon icon={faArrowDownLong} className="min-max-icon" />
         <p className="min-max-temperature">{handleTemperature(minTemp)}</p>
         <div>
@@ -22,9 +22,9 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
             </span>
           </p>
         </div>
-      </div>
+      </article>
 
-      <div className="min-max-container">
+      <article className="min-max-container">
         <FontAwesomeIcon icon={faArrowUpLong} className="min-max-icon" />
         <p className="min-max-temperature">{handleTemperature(maxTemp)}</p>
         <div>
@@ -35,7 +35,7 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
             </span>
           </p>
         </div>
-      </div>
+      </article>
     </div>
   );
 }

@@ -19,12 +19,12 @@ function CitySearchForm({ handleCitySearch }) {
     <section className="w-full md:w-1/2">
       <form
         onSubmit={setInputCity}
-        className="flex h-14 items-center justify-between rounded transition-shadow hover:ring hover:ring-neutral-200"
+        className="flex h-14 items-center justify-between rounded ring-1 ring-neutral-200/60 transition-shadow hover:ring-2 hover:ring-neutral-200"
       >
         <input
           type="search"
           placeholder="Search For A Specific City"
-          className="required h-full grow rounded-l border-0 bg-neutral-600/40 p-3 tracking-wider text-light outline-0 placeholder:text-neutral-100 md:text-2xl"
+          className="required h-full grow rounded-l border-0 bg-neutral-600/40 p-3 tracking-wider text-light outline-0 placeholder:text-neutral-100/60 md:text-2xl "
           name="city"
           onChange={readInputCity}
           value={cityName}

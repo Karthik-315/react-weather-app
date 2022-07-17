@@ -40,12 +40,12 @@
   }
 
   .other-data-container {
-    @apply mt-0 flex w-full items-center justify-center p-2
-        opacity-50 transition-[transform_opacity] duration-300 ease-in lg:my-4;
+    @apply mt-0 flex w-full scale-95 items-center justify-center p-2
+        opacity-50 transition-[transform_opacity] duration-300 ease-in lg:py-7;
   }
 
   .other-data-container--active {
-    @apply opacity-100;
+    @apply scale-100 opacity-100;
   }
 
   .other-data-icon {
