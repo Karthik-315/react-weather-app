@@ -16,7 +16,7 @@ function CitySearchForm({ handleCitySearch }) {
   }
 
   return (
-    <section className="w-full md:w-1/2">
+    <section className="w-full md:w-2/3 lg:w-1/2">
       <form
         onSubmit={setInputCity}
         className="flex h-14 items-center justify-between rounded ring-1 ring-neutral-200/60 transition-shadow hover:ring-2 hover:ring-neutral-200"

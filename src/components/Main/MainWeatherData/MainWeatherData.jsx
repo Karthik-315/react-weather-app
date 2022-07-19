@@ -5,7 +5,8 @@ import TemperatureData from "./TemperatureData/TemperatureData";
 import OtherWeatherData from "./OtherWeatherData";
 
 function MainWeatherData({
-  coords,
+  latitude,
+  longitude,
   apikey,
   isCitySearch,
   cityCurrentURL,
@@ -14,7 +15,6 @@ function MainWeatherData({
 }) {
   const [weatherData, setWeatherData] = useState();
   const weatherURLPrefix = "https://api.openweathermap.org/data/2.5/weather?";
-  const { latitude, longitude } = coords.coords;
 
   // Default search is location based, if a city is provided in the search bar, weather info for that city is provided.
   const weatherURL = isCitySearch

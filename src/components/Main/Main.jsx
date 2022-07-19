@@ -16,12 +16,26 @@ function Main({
   const [unitType, setUnitType] = useState("Metric");
   const [hasErrors, setHasErrors] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
+  const { latitude, longitude } = coords ? coords : {};
 
-  function getUserLocation() {
+  function getUserCoords() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setCoords(position);
+        ({ coords }) => {
+          setCoords(coords);
+
+          // To determine using Metric or Imperial Units based on user location
+          const reverseGeoCodingURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.latitude}&lon=${coords.longitude}&limit=1&appid=${apikey}`;
+          axios
+            .get(reverseGeoCodingURL)
+            .then(({ data }) => {
+              // After some research, only the US, Myanmar and Liberia use imperial units.
+              ["US", "MM", "LR"].includes(data[0].country) &&
+                setUnitType("Imperial");
+            })
+            .catch((error) => {
+              return;
+            });
         },
         (error) => {
           setHasErrors(true);
@@ -31,26 +45,9 @@ function Main({
     } else {
       setHasErrors(true);
       setErrorMessage(
-        "HAHAHA! LMAO! Your browser does not support Geo Location, bro! What a Noob!"
+        "HAHAHA! LMAO! Your browser does not support Geo Location, mortal! What a Noob!"
       );
     }
-  }
-
-  // To determine using Metric or Imperial Units based on user location
-  function getUserCountry() {
-    const ipRegAPIKey = import.meta.env.VITE_LOCATION_API_KEY;
-    const ipRegURL = `https://api.ipregistry.co/?key=${ipRegAPIKey}`;
-
-    axios
-      .get(ipRegURL)
-      .then(({ data }) => {
-        // After some research, only the US, Myanmar and Liberia use imperial units.
-        ["US", "MM", "LR"].includes(data.location.country.code) &&
-          setUnitType("Imperial");
-      })
-      .catch((error) => {
-        return;
-      });
   }
 
   function formatTemperature(data) {
@@ -71,8 +68,7 @@ function Main({
   }
 
   useEffect(() => {
-    getUserLocation();
-    getUserCountry();
+    getUserCoords();
   }, [unitType]);
 
   return (
@@ -82,7 +78,8 @@ function Main({
           coords && (
             <>
               <MainWeatherData
-                coords={coords}
+                latitude={latitude}
+                longitude={longitude}
                 apikey={apikey}
                 isCitySearch={isCitySearch}
                 cityCurrentURL={cityCurrentURL}
@@ -90,7 +87,8 @@ function Main({
                 handleErrors={displayError}
               />
               <ForecastContainer
-                coords={coords}
+                latitude={latitude}
+                longitude={longitude}
                 apikey={apikey}
                 isCitySearch={isCitySearch}
                 cityForecastURL={cityForecastURL}

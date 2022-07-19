@@ -4,7 +4,8 @@ import { nanoid } from "nanoid";
 import DailyForecastCard from "./DailyForecastCard";
 
 function ForecastContainer({
-  coords,
+  latitude,
+  longitude,
   apikey,
   isCitySearch,
   cityForecastURL,
@@ -13,7 +14,6 @@ function ForecastContainer({
   const [forecastData, setForecastData] = useState();
   const weatherForecastURLPrefix =
     "https://api.openweathermap.org/data/2.5/forecast?";
-  const { latitude, longitude } = coords.coords;
 
   // Default search is location based, if a city is provided in the search bar, weather info for that city is provided.
   const weatherURL = isCitySearch
