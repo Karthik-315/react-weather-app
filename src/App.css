@@ -20,11 +20,11 @@
   }
 
   .min-max-container {
-    @apply mx-1.5 flex items-center opacity-90 lg:mx-10;
+    @apply mx-4 flex items-center opacity-90 lg:mx-10;
   }
 
   .min-max-icon {
-    @apply h-3 w-auto px-1 lg:h-6;
+    @apply mr-1 h-3 w-auto lg:h-6;
   }
 
   .min-max-temperature {
@@ -36,24 +36,21 @@
   }
 
   .sub-section--other-data {
-    @apply col-span-2 mt-32 flex-row md:mt-44 lg:static lg:my-0 lg:flex-col;
+    @apply col-span-2 mt-20 flex-row md:mt-44 lg:static lg:my-0 lg:flex-col;
   }
 
   .other-data-container {
-    @apply mt-0 flex w-full items-center justify-center p-2
-        opacity-50 transition-[transform_opacity] duration-300 ease-in lg:py-7;
-  }
-
-  .other-data-container--active {
-    @apply opacity-100;
+    @apply mt-0 flex w-full items-center justify-center
+        p-2 transition-[transform_opacity] duration-300 ease-in hover:scale-105
+        hover:ring-1 hover:ring-inset hover:ring-neutral-200/10 lg:py-7;
   }
 
   .other-data-icon {
-    @apply h-6 w-6 lg:px-4;
+    @apply h-5 w-5 md:h-10 md:w-10 lg:mr-2;
   }
 
   .other-data-text {
-    @apply m-0 ml-2 font-medium md:text-2xl;
+    @apply m-0 ml-2 font-medium md:text-2xl lg:grow;
   }
 
   .unit-text {

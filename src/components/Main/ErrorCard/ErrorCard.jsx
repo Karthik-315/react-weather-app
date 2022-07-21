@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import errorIcon from "../../../assets/icons/alert.svg";
 
 function ErrorCard({ errorMessage, handleCloseError }) {
   let customErrorMessage, customErrorMessageLineTwo;
@@ -68,10 +67,11 @@ function ErrorCard({ errorMessage, handleCloseError }) {
     <section className="error-modal">
       <article className="relative h-24 p-4">
         <div className="absolute -top-[80%] left-1/2 -translate-x-1/2 rounded-full bg-red-400 p-5 shadow-2xl outline-none outline-4 outline-offset-0 outline-slate-50 ring-8 ring-red-400 dark:outline-slate-700">
-          <FontAwesomeIcon
-            icon={faTriangleExclamation}
-            className="h-14 w-14 text-neutral-100"
-          />
+          <img
+            src={errorIcon}
+            alt="Error Icon"
+            className="svg-filter-white h-14 w-14"
+          ></img>
         </div>
         <h3 className="absolute bottom-0 left-0 right-0 m-0 text-center font-bold uppercase tracking-widest">
           Oops! An Error Occured!

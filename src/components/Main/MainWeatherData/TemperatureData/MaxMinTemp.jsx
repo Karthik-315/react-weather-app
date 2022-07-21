@@ -1,18 +1,19 @@
 import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowUpLong,
-  faArrowDownLong,
-} from "@fortawesome/free-solid-svg-icons";
+import upArrow from "../../../../assets/icons/up-arrow.svg";
 import UnitContext from "./../../unit-context";
 
 function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
   const unitType = useContext(UnitContext);
 
   return (
-    <div className="flex w-full justify-between opacity-95 md:mt-8">
+    <div className="mt-4 flex w-full justify-center opacity-95 md:mt-8 md:justify-between">
       <article className="min-max-container">
-        <FontAwesomeIcon icon={faArrowDownLong} className="min-max-icon" />
+        {/* Same SVG as up arrow but rotated 180 degrees */}
+        <img
+          src={upArrow}
+          alt="Down Arrow"
+          className="min-max-icon dark:svg-filter-white rotate-180"
+        />
         <p className="min-max-temperature">{handleTemperature(minTemp)}</p>
         <div>
           <p>
@@ -25,7 +26,11 @@ function MaxMinTemp({ minTemp, maxTemp, handleTemperature }) {
       </article>
 
       <article className="min-max-container">
-        <FontAwesomeIcon icon={faArrowUpLong} className="min-max-icon" />
+        <img
+          src={upArrow}
+          alt="Up Arrow"
+          className="min-max-icon dark:svg-filter-white"
+        />
         <p className="min-max-temperature">{handleTemperature(maxTemp)}</p>
         <div>
           <p>

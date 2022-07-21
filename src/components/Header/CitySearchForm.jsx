@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import searchIcon from "../../assets/icons/search.svg";
 
 function CitySearchForm({ handleCitySearch }) {
   const [cityName, setCityName] = useState("");
@@ -29,8 +28,12 @@ function CitySearchForm({ handleCitySearch }) {
           onChange={readInputCity}
           value={cityName}
         />
-        <button className="h-full rounded-r bg-neutral-600/40 p-3 px-5 text-light">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <button className="h-full rounded-r bg-neutral-600/40 text-light">
+          <img
+            src={searchIcon}
+            alt="Search Button"
+            className="svg-filter-white h-full p-4"
+          />
         </button>
       </form>
     </section>

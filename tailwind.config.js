@@ -12,11 +12,11 @@ module.exports = {
       },
 
       backgroundImage: {
-        dawn: "url('./assets/images/bg-medium/bg-dawn.jpg')",
-        morning: "url('./assets/images/bg-medium/bg-morning.jpg')",
-        noon: "url('./assets/images/bg-medium/bg-noon.jpg')",
-        evening: "url('./assets/images/bg-medium/bg-evening.jpg')",
-        night: "url('./assets/images/bg-medium/bg-night-clear-moon.jpg')",
+        dawn: "url('./assets/images/bg-dawn.jpg')",
+        morning: "url('./assets/images/bg-morning.jpg')",
+        noon: "url('./assets/images/bg-noon.jpg')",
+        evening: "url('./assets/images/bg-evening.jpg')",
+        night: "url('./assets/images/bg-night-clear-moon.jpg')",
       },
 
       fontFamily: {

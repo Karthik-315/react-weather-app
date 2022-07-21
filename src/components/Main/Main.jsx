@@ -73,7 +73,7 @@ function Main({
 
   return (
     <UnitContext.Provider value={unitType}>
-      <main className="flex min-h-[calc(100vh_-_8rem)] flex-col items-center justify-between p-2 py-4 md:p-8 md:px-14 lg:min-h-[calc(100vh_-_5rem)] lg:p-0">
+      <main className="mt-4 flex min-h-[calc(100vh_-_8rem)] flex-col items-center justify-between p-2 py-4 md:mt-0 md:p-8 md:px-14 lg:min-h-[calc(100vh_-_5rem)] lg:p-0">
         {!hasErrors ? (
           coords && (
             <>
