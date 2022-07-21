@@ -34,6 +34,7 @@ function Main({
                 setUnitType("Imperial");
             })
             .catch((error) => {
+              console.clear();
               return;
             });
         },

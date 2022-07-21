@@ -21,20 +21,25 @@ function ForecastContainer({
     : `${weatherForecastURLPrefix}lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
   async function getForecastData() {
-    axios.get(weatherURL).then((response) => {
-      // Get first 8 forecast data with a 12 hour gap. Starting with the next timeframe.
-      const nextDataGap = 4;
-      let dataIndexToDisplay = 7;
+    axios
+      .get(weatherURL)
+      .then((response) => {
+        // Get first 8 forecast data with a 12 hour gap. Starting with the next timeframe.
+        const nextDataGap = 4;
+        let dataIndexToDisplay = 7;
 
-      let slicedForecastData = [];
+        let slicedForecastData = [];
 
-      while (slicedForecastData.length < 8) {
-        slicedForecastData.push(response.data.list[dataIndexToDisplay]);
-        dataIndexToDisplay += nextDataGap;
-      }
+        while (slicedForecastData.length < 8) {
+          slicedForecastData.push(response.data.list[dataIndexToDisplay]);
+          dataIndexToDisplay += nextDataGap;
+        }
 
-      setForecastData(slicedForecastData);
-    });
+        setForecastData(slicedForecastData);
+      })
+      .catch(() => {
+        console.clear();
+      });
   }
 
   useEffect(() => {

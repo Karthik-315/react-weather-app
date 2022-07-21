@@ -28,6 +28,7 @@ function MainWeatherData({
         setWeatherData(response.data);
       })
       .catch((error) => {
+        console.clear();
         handleErrors(error.response.data.message);
       });
   }
