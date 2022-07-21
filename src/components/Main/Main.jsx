@@ -25,7 +25,7 @@ function Main({
           setCoords(coords);
 
           // To determine using Metric or Imperial Units based on user location
-          const reverseGeoCodingURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.latitude}&lon=${coords.longitude}&limit=1&appid=${apikey}`;
+          const reverseGeoCodingURL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coords.latitude}&lon=${coords.longitude}&limit=1&appid=${apikey}`;
           axios
             .get(reverseGeoCodingURL)
             .then(({ data }) => {
