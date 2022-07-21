@@ -24,11 +24,11 @@
   }
 
   .min-max-icon {
-    @apply mr-1 h-3 w-auto lg:h-6;
+    @apply mr-1 h-5 w-auto lg:h-6;
   }
 
   .min-max-temperature {
-    @apply m-0 p-0 font-medium;
+    @apply m-0 p-0 text-xl font-medium;
   }
 
   .min-max-unit-text {
@@ -46,7 +46,7 @@
   }
 
   .other-data-icon {
-    @apply h-5 w-5 md:h-10 md:w-10 lg:mr-2;
+    @apply h-7 w-7 md:h-10 md:w-10 lg:mr-2;
   }
 
   .other-data-text {

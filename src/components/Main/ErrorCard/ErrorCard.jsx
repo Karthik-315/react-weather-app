@@ -74,7 +74,7 @@ function ErrorCard({ errorMessage, handleCloseError }) {
           ></img>
         </div>
         <h3 className="absolute bottom-0 left-0 right-0 m-0 text-center font-bold uppercase tracking-widest">
-          Oops! An Error Occured!
+          Oops! You F*cked up! Not me, YOU!
         </h3>
       </article>
 

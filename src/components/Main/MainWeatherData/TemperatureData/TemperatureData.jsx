@@ -23,12 +23,12 @@ function TemperatureData({
       </div>
 
       <article className="my-4 flex items-center">
-        <h2 className="m-0 p-0 text-6xl tracking-wider md:text-9xl">
+        <h2 className="m-0 p-0 text-8xl tracking-wider md:text-9xl">
           {handleTemperature(mainTemperature.temp)}
         </h2>
         <div className="flex h-full flex-col justify-between px-1">
           <h3 className="m-0 text-3xl md:text-6xl">°</h3>
-          <h3 className="m-0 text-3xl font-extralight md:text-6xl">
+          <h3 className="m-0 text-4xl font-extralight md:text-6xl">
             {unitType === "Metric" ? "C" : "F"}
           </h3>
         </div>
